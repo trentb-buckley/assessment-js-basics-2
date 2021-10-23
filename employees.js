@@ -65,9 +65,10 @@ const empOne = new Employee("Jess", ['weekday mornings', 'weekday afternoons']);
 
 //CODE HERE
 let empTwo = {...empOne}
+//can also be const empTwo = {...empOne, name: 'Nick'}
 console.log(empTwo)
 empTwo.name = 'Nick'
-console.log(empTwo)
+// console.log(empTwo)
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -94,13 +95,12 @@ console.log(empTwo)
 
 //CODE HERE
 class Manager extends Employee {
-    constructor(name, shifts, employees) {
-        this.name = name;
-        this.shifts = shifts;
+    constructor(name, age, employees){
+        super(name, age);
         this.employees = employees;
     }
     getEmployees() {
-        console.log(`${this.name} manages ${this.employees}`)
+        return(`${this.name} manages ${this.employees}`)
     }
     addEmployee(emp) {
         this.employees = this.employees.push(emp);
@@ -120,17 +120,14 @@ class Manager extends Employee {
 */
 
 //CODE HERE
-const manager = new Manager {
-    
-}
-
+const manager = new Manager('Winston', ['weekday mornings', 'weekday afternoons'], ['Cece', 'Schmidt'])
 /*
     Call the `getEmployees` method on the
     `manager` object.  
 */
 
 //CODE HERE
-
+// console.log(manager.getEmployees());
 /*
     Call the `addEmployee` method on the 
     `manager` object passing in the string 
@@ -138,6 +135,7 @@ const manager = new Manager {
 */
 
 //CODE HERE 
+console.log(manager.addEmployee('Coach'))
 
 /*
     Call the `getEmployees` method on the
@@ -146,3 +144,4 @@ const manager = new Manager {
 */
 
 //CODE HERE
+console.log(manager.getEmployees())

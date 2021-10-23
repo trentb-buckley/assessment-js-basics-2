@@ -51,23 +51,22 @@ console.log(greetUser('Trentb'));
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 //CODE HERE
-// const canWeDeliver = (zipCode) => {
-//     for(i = 0; i < deliveryAreaZipCodes.length; i++) {
-//         if(zipCode === deliveryAreaZipCodes) {
-//             return "You're in our delivery zone!";
-//         } else {
-//             return "Sorry, we can't deliver to that address";
-//         };
-//     };
-// };
 const canWeDeliver = (zipCode) => {
+    for(i = 0; i < deliveryAreaZipCodes.length; i++) {
+        if(deliveryAreaZipCodes[i] === zipCode) {
+            return "You're in our delivery zone!";
+        };
+    };
+    return "Sorry, we can't deliver to that address";
+};
+const canWeDeliverOne = (zipCode) => {
     if(deliveryAreaZipCodes.indexOf(zipCode) > -1) {
             return "You're in our delivery zone!";
     } else {
         return "Sorry, we can't deliver to that address";
     };
 };
-console.log(canWeDeliver(85233));
+console.log(canWeDeliverOne(85213));
 
 /* 
     Problem 2 Continued
@@ -129,11 +128,14 @@ const deals = [
     to be itself, but use the `replace` method
     to replace the 15 with a 10.
 */
-
+deals[0].title = deals[0].title.replace('15', '10');
+console.log(deals[0].title)
 //CODE HERE
-const changedValue = deals.title['15'] = ['10'];
-console.log(changedValue);
-
+// const changedValue = deals.title['15'] = ['10'];
+// console.log(changedValue);
+// const changeValue = (element) => {
+//     let changedValue = deals.element
+// }
 
 /*
     The restaurant is going to continue its
@@ -149,3 +151,5 @@ console.log(changedValue);
 */
 
 //CODE HERE
+deals[1].desc = deals[1].desc.replace('March', 'April');
+console.log(deals[1].desc)

@@ -101,46 +101,45 @@ console.log(category)
 const foodArr = [
     {
         name: 'HotDog',
-        price: 1,
+        price: 11.45,
         category: 'Lunch',
-        popularity: 8.5,
+        popularity: 10,
         rating: 7,
         tags: ['proccessed meat', 'not a sandwich', 'for basebal games']
     },
     {
         name: 'Hamburger',
-        price: 7,
+        price: 21.45,
         category: 'Fast Food',
-        popularity: 5,
+        popularity: 8,
         rating: 11,
         tags: ['non vegetarian', 'creepy clown', 'play place']
     },
     {
         name: 'Taco',
-        price: 1,
+        price: 5.55,
         category: 'Almuerzo',
-        popularity: 15,
+        popularity: 6,
         rating: 12,
         tags: ['Fiesta', 'crunchy', 'delicioso']
     },
     {
         name: 'Salad',
-        price: 25,
+        price: 4.95,
         category: 'Side dish',
-        popularity: 2.5,
-        rating: 0,
+        popularity: 4,
+        rating: 6,
         tags: ['vegetarian', 'lame']
     },
     {
         name: 'Sandwich',
-        price: 45,
+        price: 5.99,
         category: 'Brunch',
-        popularity: 55,
-        rating: 105,
+        popularity: 2,
+        rating: 5,
         tags: ['Sammy', 'Deli']
     }
 ]
-
 
 //////////////////PROBLEM 4////////////////////
 /* 
@@ -156,12 +155,17 @@ const foodArr = [
 
 //CODE HERE
 
-const filteredFood = foodArr.filter(function(element) {
-    let calledTag = element;
-    return calledTag;
-})
-console.log('non vegetarian');
-
+// const filteredFood = foodArr.filter(function(element) {
+//     let calledTag = element;
+//     return calledTag;
+// })
+// console.log('non vegetarian');
+const filteredFood = foodArr.filter((element) => {
+    if(element.tags.includes("crunchy")) {
+        return element;
+    };
+});
+console.log(filteredFood);
 //////////////////PROBLEM 5////////////////////
 /* 
 Now let's write a function that's a little
@@ -202,22 +206,48 @@ The property will be a string (rating,
         */
        
        //CODE HERE
-const filterByProperty = (property, num1, type) => {
-    let newArr = foodArr.filter(function(){
+// const filterByProperty = (property, number, type) => {
+//     const filteredArr = [];
+//     if(type === 'above') {
+//         foodArr.filter((element) => {
+//             if(element[property] > number) {
+//                 filteredArr.push(element);
+//             } 
+        
+//             } else if(type === 'below') {
+//         if(element[property] < number) {
+//             filteredArr.push(element);
+//             };
+//         };
+//     };
+// };
+const filterByProperty = (property, number, type) => {
+    const filteredFood = foodArr.filter((element) => {
         if(type === 'above') {
-            return property > num1;
+            return element[property] >= number;
         } else if(type === 'below') {
-            return property < num1;
-        }
-        return newArr;
-    })
+            return element[property] <= number;
+        };
+    }) ;
+    return filteredFood;
 };
-console.log(filterByProperty(foodArr.rating, 25, 'above'))
-       /*
-       Invoke the `filterByProperty` function passing
-       in a value for each paramter.
-       
-       You'll have to console.log to see the filtered array
-       */
-      
-      //CODE HERE
+console.log(foodArr.filterByProperty('popularity', 4, 'above'))
+// const filterByProperty = ((property, num1, type) => {
+//     let newArr = foodArr.filter(function(){
+//         if(type === 'above') {
+//             return property > num1;
+//         } else if(type === 'below') {
+//             return property < num1;
+//         }
+//     }
+//     return newArr;
+// });
+/*
+Invoke the `filterByProperty` function passing
+in a value for each paramter.
+
+You'll have to console.log to see the filtered array
+*/
+
+//CODE HERE
+// console.log(filterByProperty(foodArr.rating, 25, 'above'))
